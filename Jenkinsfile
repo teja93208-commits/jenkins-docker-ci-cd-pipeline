@@ -5,6 +5,8 @@ pipeline {
         DOCKER_IMAGE = "tejavardhan0987/jenkins-docker-ci-cd-pipeline"
     }
 
+    stages {
+
         stage('Build Docker Image') {
             steps {
                 sh 'docker build -t $DOCKER_IMAGE .'
@@ -19,15 +21,9 @@ pipeline {
             }
         }
 
-        stage('Push Docker Image') {
+        stage('Push Image') {
             steps {
                 sh 'docker push $DOCKER_IMAGE'
-            }
-        }
-
-        stage('Success Message') {
-            steps {
-                echo '✅ CI/CD Pipeline executed successfully!'
             }
         }
     }
