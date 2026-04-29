@@ -5,14 +5,6 @@ pipeline {
         DOCKER_IMAGE = "tejavardhan0987/jenkins-docker-ci-cd-pipeline"
     }
 
-    stages {
-
-        stage('Clone Code') {
-            steps {
-                git 'https://github.com/teja93208-commits/jenkins-docker-ci-cd-pipeline.git'
-            }
-        }
-
         stage('Build Docker Image') {
             steps {
                 sh 'docker build -t $DOCKER_IMAGE .'
